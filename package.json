@@ -1,0 +1,30 @@
+{
+  "name": "github-language-api",
+  "version": "1.0.0",
+  "description": "## Getting started",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJ8GH/github-language-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AJ8GH/github-language-api/issues"
+  },
+  "homepage": "https://github.com/AJ8GH/github-language-api#readme",
+  "devDependencies": {
+    "c8": "^7.7.2",
+    "cypress": "^7.4.0",
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "express": "^4.17.1",
+    "nyc": "^15.1.0"
+  }
+}
