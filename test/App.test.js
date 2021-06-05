@@ -5,8 +5,6 @@ import app from '../App.js'
 chai.use(chaiHttp)
 
 describe('App', () => {
-  // afterEach(() => app.close())
-
   describe('/', () => {
     it('reponds with 200', (done) => {
       const server = chai.request(app)
