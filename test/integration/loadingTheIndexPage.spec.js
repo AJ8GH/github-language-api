@@ -1,5 +1,4 @@
-const INSTRUCTION =
-'Enter a GitHub username'
+const INSTRUCTION = 'Enter a GitHub username'
 
 describe('Index page', () => {
   it('loads successfully', () => {
