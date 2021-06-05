@@ -1,10 +1,13 @@
 {
   "name": "github-language-api",
   "version": "1.0.0",
-  "description": "## Getting started",
+  "description": "Find the favourite languages of any GitHub User",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "c8 mocha",
+    "cy": "cypress run",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -18,13 +21,16 @@
   "homepage": "https://github.com/AJ8GH/github-language-api#readme",
   "devDependencies": {
     "c8": "^7.7.2",
+    "chai": "^4.3.4",
     "cypress": "^7.4.0",
     "eslint": "^7.28.0",
     "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "express": "^4.17.1",
+    "mocha": "^8.4.0",
     "nyc": "^15.1.0"
   }
 }
