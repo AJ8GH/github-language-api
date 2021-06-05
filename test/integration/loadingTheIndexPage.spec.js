@@ -1,5 +1,5 @@
 const INSTRUCTION =
-'Enter a GitHub username and click go!'
+'Enter a GitHub username'
 
 describe('Index page', () => {
   it('loads successfully', () => {
