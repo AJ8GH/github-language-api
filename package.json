@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Find the favourite languages of any GitHub User",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "c8 mocha",
+    "test": "c8 mocha --exit",
     "cy": "cypress run",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
@@ -22,6 +23,7 @@
   "devDependencies": {
     "c8": "^7.7.2",
     "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cypress": "^7.4.0",
     "eslint": "^7.28.0",
     "eslint-config-standard": "^16.0.3",
