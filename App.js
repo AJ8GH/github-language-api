@@ -5,11 +5,9 @@ const END_POINT = 'http://localhost:'
 const PORT = 3000
 
 const app = express()
-app.use(express.static('static'))
 
-app.get('/', (req, res) => {
-  res.status(200).send('ok')
-})
+app.use(express.static('static'))
+app.get('/')
 
 app.listen(PORT, () => console.log(`${MESSAGE}${END_POINT}${PORT}`))
 
