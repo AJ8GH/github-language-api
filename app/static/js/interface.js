@@ -6,6 +6,8 @@ const dataParser = new GithubDataParser()
 
 document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
+  document.getElementById('user')
+    .innerHTML = `<p class="user">${username}<p>`
   getUserRepos(username)
 })
 
