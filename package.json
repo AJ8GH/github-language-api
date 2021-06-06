@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node app/App.js",
+    "start": "node app/app.js",
     "test": "c8 mocha test/models test/app.test.js --timeout 3000 --exit",
     "cy": "cypress run",
     "coverage": "c8 report --reporter=text-lcov > coverage.lcov && codecov",
