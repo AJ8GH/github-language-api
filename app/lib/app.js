@@ -2,7 +2,7 @@ import express from 'express'
 
 const MESSAGE = 'Server listening at '
 const END_POINT = 'http://localhost:'
-const PORT = 3000
+const PORT = (process.env.PORT || 3000)
 
 const app = express()
 
