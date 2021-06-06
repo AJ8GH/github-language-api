@@ -18,6 +18,19 @@ async function getUserRepos (username) {
 function parseAndDisplayResults (languages) {
   const languageCount = dataParser.parse(languages)
   console.log(languageCount)
+
   const element = document.getElementById('languages')
-  element.innerHTML = `<p>Favourite language: ${languageCount[0].language}<p>`
+  element.innerHTML =
+  `<p class="favourite">Favourite language: ${languageCount[0].language}<p/>`
+
+  displayLanguageBreakdown(languageCount, element)
+}
+
+function displayLanguageBreakdown (languageCount, element) {
+  languageCount.forEach(languageObject => {
+    const { language, count } = languageObject
+    const repos = (count === 1) ? 'repository' : 'repositories'
+    element.innerHTML +=
+    `<p class="language"> ${language} - ${count} ${repos}<p/>`
+  })
 }

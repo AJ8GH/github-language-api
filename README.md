@@ -62,6 +62,16 @@ Then, with the server still running:
 npm run cy
 ```
 
+## Design
+
+### Edge cases
+
+* Null language repos
+* Null username input
+* Incorrect username input
+* No repos under user
+* API down
+
 ## Using the app
 
 ## Dependencies
