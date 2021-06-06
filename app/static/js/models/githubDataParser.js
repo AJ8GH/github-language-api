@@ -24,7 +24,7 @@ export default class GithubDataParser {
   }
 
   _filterNulls (languages) {
-    return languages.filter(language => language !== 'null')
+    return languages.filter(language => language !== null)
   }
 
   _sortByFavourite (languages) {

@@ -26,9 +26,9 @@ describe('GithubDataParser', () => {
       const githubDataParser = new GithubDataParser()
 
       const response = [
-        { language: 'null' },
+        { language: null },
         { language: 'JavaScript' },
-        { language: 'null' }
+        { language: null }
       ]
 
       const expectedResult = [{ language: 'JavaScript', count: 1 }]
