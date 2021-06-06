@@ -2,12 +2,12 @@ function mockApiRequest () {
   cy.intercept(
     {
       method: 'GET',
-      url: '/users/*'
+      url: 'https://api.github.com/users/aj8gh/repos?per_page=999'
     },
     [
-      { language: 'Ruby' },
       { language: 'JavaScript' },
       { language: 'Ruby' },
+      { language: 'JavaScript' },
       { language: 'Python' }
     ]
   )
@@ -42,6 +42,6 @@ describe('Displaying languages', () => {
 
     cy.get('#go').click()
 
-    cy.contains('Favourite language: Ruby')
+    cy.contains('Favourite language: JavaScript')
   })
 })
