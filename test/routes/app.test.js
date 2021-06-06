@@ -1,6 +1,6 @@
 import chai from 'chai'
 import chaiHttp from 'chai-http'
-import app from '../app/app.js'
+import app from '../../app/lib/app.js'
 
 chai.use(chaiHttp)
 chai.should()

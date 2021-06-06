@@ -1,4 +1,4 @@
-import GithubDataParser from './models/GithubDataParser.js'
+import GithubDataParser from './models/githubDataParser.js'
 
 const END_POINT = 'https://api.github.com/users/'
 const QUERY = '/repos?per_page=999'

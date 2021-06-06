@@ -10,7 +10,7 @@ const response = [
 
 describe('GithubDataParser', () => {
   describe('parse', () => {
-    it('returns array of objects with a count of each language', () => {
+    it('returns languages with their count, sorted by favouite', () => {
       const githubDataParser = new GithubDataParser()
 
       const expectedResult = [
