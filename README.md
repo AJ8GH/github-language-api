@@ -9,7 +9,11 @@
 
 App to determine the favourite proramming languages of a GitHub user, using the public GitHub API
 
-[Getting Started](#getting-started) | [Running Tests](#running-tests) | [Usage](#using-the-app) | [Dependencies](#dependencies) | [User Stories](https://github.com/AJ8GH/github-language-api/blob/main/user-stories.md)
+[Deployed App](#deployed-app) | [Getting Started](#getting-started) | [Running Tests](#running-tests) | [Usage](#using-the-app) | [Dependencies](#dependencies) | [User Stories](https://github.com/AJ8GH/github-language-api/blob/main/user-stories.md)
+
+## Deployed app
+
+You can use the deployed application here: https://github-language-analyser.herokuapp.com/
 
 ## Getting started
 
