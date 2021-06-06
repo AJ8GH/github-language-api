@@ -36,9 +36,9 @@ Then head to localhost in your browser, on port 3000, or [click here](http://loc
 
 ## Running tests
 
-Unit tests are written with Mocha, while integration tests are written with Cypress.
+I've used Mocha for unit tests and Cypress for integration tests.
 
-### Mocha
+### Mocha
 
 Unit tests can be run from the project root with:
 
