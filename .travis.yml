@@ -13,3 +13,5 @@ after_success:
 deploy:
   provide: heroku
   api_key: $HEROKU_AUTH_TOKEN
+  app: github-language-analyser
+  on: main
