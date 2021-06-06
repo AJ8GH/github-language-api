@@ -1,4 +1,25 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+.instructions {
+  margin-top: 80px;
+  font-size: 25px;
+}
+
+.input, .go {
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.input {
+  width: 300px;
 }

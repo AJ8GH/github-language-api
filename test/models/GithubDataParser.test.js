@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import GithubDataParser from '../../app/static/js/githubDataParser.js'
+import GithubDataParser from '../../app/static/js/models/githubDataParser.js'
 
 const response = [
   { language: 'Ruby' },

@@ -32,7 +32,7 @@ To run the app locally, start the server:
 npm start
 ```
 
-Then head to localhost in your browser, on port 3000, or [click here](http://localhost:3000/)
+Then head to localhost in your browser at port 3000, or [click here](http://localhost:3000/)
 
 ## Running tests
 
@@ -50,24 +50,33 @@ You will need to ensure the server is not running locally when running the Mocha
 
 ### Cypress
 
-To run The Cypress test suite, first start the server:
+To run the Cypress test suite, first start the server:
 
 ```shell
 npm start
 ```
 
-Then in a different terminal, run:
+Then, with the server still running:
 
 ```shell
 npm run cy
 ```
 
-To launch the headed browser and GUI, run:
-
-```shell
-npx cypress open
-```
-
 ## Using the app
 
 ## Dependencies
+
+* `"c8": "^7.7.2"`
+* `"chai": "^4.3.4"`
+* `"chai-http": "^4.3.0"`
+* `"cypress": "^7.4.0"`
+* `"eslint": "^7.28.0"`
+* `"eslint-config-standard": "^16.0.3"`
+* `"eslint-plugin-cypress": "^2.11.3"`
+* `"eslint-plugin-import": "^2.23.4"`
+* `"eslint-plugin-node": "^11.1.0"`
+* `"eslint-plugin-promise": "^5.1.0"`
+* `"express": "^4.17.1"`
+* `"mocha": "^8.4.0"`
+* `"nyc": "^15.1.0"`
+* `"wait-on": "^5.3.0"`
