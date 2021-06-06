@@ -6,7 +6,7 @@ before_install:
   - npm install -g codecov
 script:
   - npm test
-  - node App.js & wait-on http://localhost:3000
+  - npm start & wait-on http://localhost:3000
   - npm run cy
 after_success:
   - npm run coverage

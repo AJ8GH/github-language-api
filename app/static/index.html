@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Favourite Languages</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="module" src="./js/githubDataParser.js"></script>
+    <script type="module" defer src="./js/interface.js"></script>
   </head>
   <body>
+    <h1>Github Language Analyser</h1>
     <p>Enter a GitHub username</p>
     <input type="text" id="username">
     <button id="go">Go!</button>
+
+    <div id="languages"></div>
   </body>
 </html>

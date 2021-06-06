@@ -6,8 +6,7 @@ const PORT = 3000
 
 const app = express()
 
-app.use(express.static('static'))
-app.get('/')
+app.use(express.static('app/static'))
 
 app.listen(PORT, () => console.log(`${MESSAGE}${END_POINT}${PORT}`))
 
