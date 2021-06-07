@@ -1,4 +1,4 @@
-# GitHub Favourite Languages API
+# GitHub Favourite Languages
 
 [![Build Status](https://travis-ci.com/AJ8GH/github-language-api.svg?branch=main)](https://travis-ci.com/AJ8GH/github-language-api)
 [![codecov](https://codecov.io/gh/AJ8GH/github-language-api/branch/main/graph/badge.svg?token=Jotushbsqm)](https://codecov.io/gh/AJ8GH/github-language-api)
@@ -14,6 +14,12 @@ App to determine the favourite proramming languages of a GitHub user, using the 
 ## Deployed app
 
 You can use the deployed application here: https://github-language-analyser.herokuapp.com/
+
+## Using the app
+
+Open the [app](https://github-language-analyser.herokuapp.com/) and enter the username of any GitHub user. Click "Go!" to see the results. You will be notified if you forget to enter a username, if the user doesn't exist, or if they have not committed any code to their GitHub. Enter as many users as you like!
+
+![my-repos](images/my-repos.gif)
 
 ## Getting started
 
@@ -40,7 +46,7 @@ Then head to localhost in your browser at port 3000, or [click here](http://loca
 
 ## Running tests
 
-I've used Mocha for unit tests and Cypress for integration tests.
+The app uses Mocha for unit tests and Cypress for integration tests.
 
 ### Mocha
 
@@ -68,15 +74,56 @@ npm run cy
 
 ## Design
 
+I chose to built this app using Node.js for the backend and 'vanilla' JS for the frontend UI. In designing and developing the app, I have applied the following techinques:
+
+### TDD
+
+* Followed an outside-in, red-green-refactor, tdd process.
+* Used `Cypress` for end-to-end BDD, and `Mocha` for testing the server and the `GithubDataParser` class
+* Used `c8`, `nyc` and CodeCov to track test coverage
+
+### CI/CD
+
+* Set up CI/CD using travis, which runs all unit and feature tests.
+* On a successful build, travis submits test coverage data to CodeCov and deploys the new version to Heroku.
+
+### Code Quality
+
+* Used TDD and OOP principles to ensure my code stayed readable and maintainable.
+* Applied the Single Responsibility Principle in keeping classes and functions short and with a clear purpose
+* Created the `GitHubDataParser` class, responsible for manipulating the raw JSON data from the GitHub API, in order to separate the logic involved in this process, from the JavaScript code in `interface.js`. The Interface code is responsible for manipulating the DOM.
+* Tracked code quality using CodeClimate and Better Code Hub.
+* Used ESLint to ensure consistent style and ensure there were no syntax errors
+
+### Workflow and process
+
+* Wrote [user stories](https://github.com/AJ8GH/github-language-api/blob/main/user-stories.md) to define a clear set of features and problems to solve
+* Made regular, atomic git commits, on green and refactor stages of my TDD process
+* Used clear commit messages for easy use of the git log
+
 ### Edge cases
 
-* Null language repos
-* Null username input
-* Incorrect username input
-* No repos under user
-* API down
+I tested and handled the following edge cases, for a smooth user experience:
+* Users with Null language repositories
 
-## Using the app
+```js
+// githubDataParser.js
+_filterNulls (languages) {
+  return languages.filter(language => language !== null)
+}
+```
+
+* Empty username input
+
+![no-input](images/no-input.gif)
+
+* Invalid username input
+
+![no-user](images/no-user.gif)
+
+* Users with no repositories
+
+![no-code](images/no-code.gif)
 
 ## Dependencies
 

@@ -18,6 +18,6 @@ I want to see a list of all the languages with a number of repositories,
 So that I can analyse how much they have used other languages
 
 As a user,
-I want the app to have a slick interface and styling,
+I want the app to have an attractive interface,
 So that it is a pleasure to use and nice to look at
 ```
