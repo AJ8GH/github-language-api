@@ -10,14 +10,21 @@
 }
 
 .instructions {
-  margin-top: 80px;
-  font-size: 25px;
+  margin-top: 40px;
+  font-size: 20px;
 }
 
 .input, .go {
-  padding: 20px;
+  padding: 15px;
   border-radius: 5px;
   font-size: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.go {
+  margin-top: 15px;
 }
 
 .input {
