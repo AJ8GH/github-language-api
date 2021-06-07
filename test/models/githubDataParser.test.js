@@ -35,5 +35,13 @@ describe('GithubDataParser', () => {
 
       expect(githubDataParser.parse(response)).to.deep.equal(expectedResult)
     })
+
+    it('returns falsey value when user has no languages', () => {
+      const githubDataParser = new GithubDataParser()
+
+      const response = [{ language: null }]
+
+      expect(githubDataParser.parse(response)).to.equal(undefined)
+    })
   })
 })

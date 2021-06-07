@@ -3,6 +3,7 @@ import GithubDataParser from './models/githubDataParser.js'
 const END_POINT = 'https://api.github.com/users/'
 const QUERY = '/repos?per_page=999'
 const EMPTY_USERNAME_MESSAGE = 'Looks like you forgot to enter a username!'
+const NO_LANGUAGE_MESSAGE = 'Looks like this user has not committed any code.'
 
 const dataParser = new GithubDataParser()
 
@@ -23,19 +24,20 @@ async function getUserRepos (username) {
 
 function parseAndDisplayResults (languages) {
   const languageCount = dataParser.parse(languages)
+  if (!languageCount) { return handleNoLanguages() }
   console.log(languageCount)
 
   const element = document.getElementById('languages')
   element.innerHTML =
   `<p class="favourite">Favourite language: ${languageCount[0].language}<p/>`
 
-  displayLanguageBreakdown(languageCount, element)
+  displayLanguageCount(languageCount, element)
 }
 
-function displayLanguageBreakdown (languageCount, element) {
+function displayLanguageCount (languageCount, element) {
   languageCount.forEach(languageObject => {
     const { language, count } = languageObject
-    const repos = (count === 1) ? 'repository' : 'repositories'
+    const repos = (count > 1) ? 'repositories' : 'repository'
     element.innerHTML +=
     `<p class="language"> ${language} - ${count} ${repos}<p/>`
   })
@@ -43,5 +45,10 @@ function displayLanguageBreakdown (languageCount, element) {
 
 function handleNullInput () {
   document.getElementById('user')
-    .innerHTML = `<p class="empty-user">${EMPTY_USERNAME_MESSAGE}<p>`
+    .innerHTML = `<p class="message">${EMPTY_USERNAME_MESSAGE}<p>`
+}
+
+function handleNoLanguages () {
+  document.getElementById('languages')
+    .innerHTML = `<p class="message">${NO_LANGUAGE_MESSAGE}<p>`
 }
