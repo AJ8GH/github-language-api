@@ -10,7 +10,7 @@ const dataParser = new GithubDataParser()
 
 document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
-  if (!username) { return handleNullInput() }
+  if (!username) { return displayMessage(EMPTY_USERNAME_MESSAGE) }
 
   document.getElementById('user')
     .innerHTML = `<p class="user">${username}<p>`
@@ -20,7 +20,7 @@ document.getElementById('go').addEventListener('click', () => {
 async function getUserRepos (username) {
   try {
     const response = await fetch(`${END_POINT}${username}${QUERY}`)
-    if (response.status !== 200) { return handleErrors() }
+    if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
     response.json().then(data => parseAndDisplayResults(data))
   } catch (error) {
     console.error(error)
@@ -29,7 +29,7 @@ async function getUserRepos (username) {
 
 function parseAndDisplayResults (languages) {
   const languageCount = dataParser.parse(languages)
-  if (!languageCount) { return handleNoLanguages() }
+  if (!languageCount) { return displayMessage(NO_LANGUAGE_MESSAGE) }
 
   console.log(languageCount)
 
@@ -49,17 +49,7 @@ function displayLanguageCount (languageCount, element) {
   })
 }
 
-function handleNullInput () {
+function displayMessage (message) {
   document.getElementById('user')
-    .innerHTML = `<p class="message">${EMPTY_USERNAME_MESSAGE}<p>`
-}
-
-function handleNoLanguages () {
-  document.getElementById('languages')
-    .innerHTML = `<p class="message">${NO_LANGUAGE_MESSAGE}<p>`
-}
-
-function handleErrors () {
-  document.getElementById('user')
-    .innerHTML = `<p class="message">${ERROR_MESSAGE}<p>`
+    .innerHTML = `<p class="message">${message}<p>`
 }
