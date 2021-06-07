@@ -20,25 +20,28 @@ async function getUserRepos (username) {
     const response = await fetch(`${END_POINT}${username}${QUERY}`)
     if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
 
-    response.json().then(data => parseAndDisplayResults(data, username))
+    response.json().then(data => parseAndDisplayResults(data))
   } catch (error) {
     console.error(error)
   }
 }
 
-function parseAndDisplayResults (languages, username) {
+function parseAndDisplayResults (languages) {
   const languageCount = dataParser.parse(languages)
   if (!languageCount) { return displayMessage(NO_LANGUAGE_MESSAGE) }
 
   const languageDiv = document.getElementById('languages')
-  document.getElementById('user').innerHTML = `<p class="user">${username}<p>`
   displayFavouriteLanguage(languageCount, languageDiv)
   displayLanguageCount(languageCount, languageDiv)
 }
 
 function displayFavouriteLanguage (languageCount, languageDiv) {
-  languageDiv.innerHTML =
-  `<p class="favourite">Favourite language: ${languageCount[0].language}<p/>`
+  const username = document.getElementById('username').value
+
+  languageDiv.innerHTML = [
+  `<p class="favourite">User <span class="user">${username}</span>'s favourite `,
+  `language is ${languageCount[0].language}<p/>`
+  ].join('')
 }
 
 function displayLanguageCount (languageCount, languageDiv) {

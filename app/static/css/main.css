@@ -5,6 +5,7 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   background-color: #ffed4b;
+  font-weight: 500;
 }
 
 .body {
@@ -38,6 +39,10 @@
   font-size: 20px;
 }
 
+.instructions, .input {
+  font-weight: 600;
+}
+
 .input, .go {
   padding: 20px;
   border-radius: 15px;
@@ -59,9 +64,6 @@
   background-color: white;
 }
 
-.favourite {
-  font-size: 25px;
-}
 
 .user {
   font-size: 25px;
@@ -69,7 +71,7 @@
 
 .favourite {
   font-size: 22px;
-  margin-top: 25px
+  margin-bottom: 20px;
 }
 
 .language {
@@ -80,10 +82,11 @@
   font-weight: 900;
 }
 
-.user, .language, .favourite {
+.language, .favourite {
   margin-top: 15px;
 }
 
 .languages {
+  margin-top: 18px;
   padding-bottom: 20px;
 }
