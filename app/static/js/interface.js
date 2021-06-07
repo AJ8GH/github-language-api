@@ -57,8 +57,8 @@ function displayLanguageCount (languageCount, languageDiv) {
 }
 
 function displayMessage (message) {
-  document.getElementById('user').innerHTML = `<p class="message">${message}<p>`
   clearLanguages()
+  document.getElementById('languages').innerHTML = `<p class="message">${message}<p>`
 }
 
 function clearLanguages () {

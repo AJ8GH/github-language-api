@@ -64,7 +64,6 @@
   background-color: white;
 }
 
-
 .user {
   font-size: 25px;
 }
@@ -89,4 +88,10 @@
 .languages {
   margin-top: 18px;
   padding-bottom: 20px;
+}
+
+.message {
+  font-size: 22px;
+  font-weight: 600;
+  padding-top: 40px;
 }
