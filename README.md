@@ -17,7 +17,7 @@ You can use the deployed application [here](https://github-language-analyser.her
 
 ## Using the app
 
-Open the [app](https://github-language-analyser.herokuapp.com/) and enter the username of any GitHub user. Click "Go!" to see the results. You will be notified if you forget to enter a username, if the user doesn't exist, or if they have not committed any code to their GitHub. Enter as many users as you like!
+Open the [app](https://github-language-analyser.herokuapp.com/) and enter the username of any GitHub user. Click "Go!" to see the results. You will be notified if you forget to enter a username, if the user doesn't exist, or if they have not committed any code to their GitHub. Repeat as many times as you like!
 
 ![my-repos](images/my-repos.gif)
 

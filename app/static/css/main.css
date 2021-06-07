@@ -33,12 +33,6 @@
   color: white;
 }
 
-.instructions {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
 .instructions, .input {
   font-weight: 600;
 }
@@ -52,6 +46,7 @@
   margin-right: auto;
   border: 0px;
   max-width: 500px;
+  margin-top: 30px;
 }
 
 .go {
@@ -60,7 +55,7 @@
 }
 
 .input {
-  width: 300px;
+  width: 400px;
   background-color: white;
 }
 

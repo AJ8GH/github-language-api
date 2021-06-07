@@ -1,12 +1,13 @@
-const INSTRUCTION = 'Enter a GitHub username'
+const PLACEHOLDER = 'Enter a GitHub username'
 
 describe('Index page', () => {
   it('loads successfully', () => {
     cy.visit('/')
   })
 
-  it('gives a description of the app and how to use it', () => {
+  it('has a helpful placeholder', () => {
     cy.visit('/')
-    cy.contains(INSTRUCTION)
+    cy.get('#username')
+      .should('have.attr', 'placeholder', PLACEHOLDER)
   })
 })
