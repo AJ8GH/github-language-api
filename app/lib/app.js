@@ -8,6 +8,8 @@ const app = express()
 
 app.use(express.static('app/static'))
 
-app.listen(PORT, () => console.log(`${MESSAGE}${END_POINT}${PORT}`))
+app.listen(PORT, () => {
+  console.log(`${MESSAGE}${END_POINT}${PORT}`)
+})
 
 export default app

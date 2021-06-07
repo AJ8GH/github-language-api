@@ -2,10 +2,14 @@ import GithubDataParser from './models/githubDataParser.js'
 
 const END_POINT = 'https://api.github.com/users/'
 const QUERY = '/repos?per_page=999'
+const EMPTY_USERNAME_MESSAGE = 'Looks like you forgot to enter a username!'
+
 const dataParser = new GithubDataParser()
 
 document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
+  if (!username) { return handleNullInput() }
+
   document.getElementById('user')
     .innerHTML = `<p class="user">${username}<p>`
   getUserRepos(username)
@@ -35,4 +39,9 @@ function displayLanguageBreakdown (languageCount, element) {
     element.innerHTML +=
     `<p class="language"> ${language} - ${count} ${repos}<p/>`
   })
+}
+
+function handleNullInput () {
+  document.getElementById('user')
+    .innerHTML = `<p class="empty-user">${EMPTY_USERNAME_MESSAGE}<p>`
 }

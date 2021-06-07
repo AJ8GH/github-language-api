@@ -8,7 +8,10 @@ function mockApiRequest (user) {
       { language: 'Java' },
       { language: 'Java' },
       { language: 'Go' },
-      { language: 'PHP' }
+      { language: 'PHP' },
+      { language: 'Java' },
+      { language: 'Ruby' },
+      { language: 'Ruby' }
     ]
   ).as('getRepos')
 }
@@ -28,7 +31,7 @@ describe('Displaying languages', () => {
       .should('include', '/aj8gh/repos?per_page=999')
   })
 
-  it('displays the other languages and how many repos in each', () => {
+  it('displays all languages and their count in order', () => {
     mockApiRequest('aj8gh')
 
     cy.visit('/')
@@ -36,6 +39,8 @@ describe('Displaying languages', () => {
     cy.get('#username').type('aj8gh')
     cy.get('#go').click()
 
+    cy.contains('Java - 3 repositories')
+    cy.contains('Ruby - 2 repositories')
     cy.contains('PHP - 1 repository')
     cy.contains('Go - 1 repository')
 
