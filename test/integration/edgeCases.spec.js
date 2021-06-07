@@ -2,7 +2,7 @@ import {
   EMPTY_USERNAME_MESSAGE,
   NO_LANGUAGE_MESSAGE,
   ERROR_MESSAGE
-} from './translations/enGb.js'
+} from '../../app/static/js/translations/enGb.js'
 
 function mockApiRequest (user) {
   cy.intercept(
