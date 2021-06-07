@@ -12,8 +12,7 @@ document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
   if (!username) { return displayMessage(EMPTY_USERNAME_MESSAGE) }
 
-  document.getElementById('user')
-    .innerHTML = `<p class="user">${username}<p>`
+  document.getElementById('user').innerHTML = `<p class="user">${username}<p>`
   getUserRepos(username)
 })
 
@@ -21,6 +20,7 @@ async function getUserRepos (username) {
   try {
     const response = await fetch(`${END_POINT}${username}${QUERY}`)
     if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
+
     response.json().then(data => parseAndDisplayResults(data))
   } catch (error) {
     console.error(error)
@@ -31,21 +31,22 @@ function parseAndDisplayResults (languages) {
   const languageCount = dataParser.parse(languages)
   if (!languageCount) { return displayMessage(NO_LANGUAGE_MESSAGE) }
 
-  console.log(languageCount)
-
   const element = document.getElementById('languages')
+  displayFavouriteLanguage(languageCount, element)
+  displayLanguageCount(languageCount, element)
+}
+
+function displayFavouriteLanguage (languageCount, element) {
   element.innerHTML =
   `<p class="favourite">Favourite language: ${languageCount[0].language}<p/>`
-
-  displayLanguageCount(languageCount, element)
 }
 
 function displayLanguageCount (languageCount, element) {
   languageCount.forEach(languageObject => {
     const { language, count } = languageObject
     const repos = (count > 1) ? 'repositories' : 'repository'
-    element.innerHTML +=
-    `<p class="language"> ${language} - ${count} ${repos}<p/>`
+    const content = `<p class="language"> ${language} - ${count} ${repos}<p/>`
+    element.innerHTML += content
   })
 }
 
