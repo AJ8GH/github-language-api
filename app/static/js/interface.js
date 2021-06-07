@@ -1,9 +1,10 @@
 import GithubDataParser from './models/githubDataParser.js'
 
-const END_POINT = 'https://api.github.com/users/'
-const QUERY = '/repos?per_page=999'
 const EMPTY_USERNAME_MESSAGE = 'Looks like you forgot to enter a username!'
 const NO_LANGUAGE_MESSAGE = 'Looks like this user has not committed any code.'
+const ERROR_MESSAGE = 'Something went wrong... are you sure that user exists?'
+const END_POINT = 'https://api.github.com/users/'
+const QUERY = '/repos?per_page=999'
 
 const dataParser = new GithubDataParser()
 
@@ -17,14 +18,19 @@ document.getElementById('go').addEventListener('click', () => {
 })
 
 async function getUserRepos (username) {
-  const response = await fetch(`${END_POINT}${username}${QUERY}`)
-  response.json()
-    .then(repos => parseAndDisplayResults(repos))
+  try {
+    const response = await fetch(`${END_POINT}${username}${QUERY}`)
+    if (response.status !== 200) { return handleErrors() }
+    response.json().then(data => parseAndDisplayResults(data))
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 function parseAndDisplayResults (languages) {
   const languageCount = dataParser.parse(languages)
   if (!languageCount) { return handleNoLanguages() }
+
   console.log(languageCount)
 
   const element = document.getElementById('languages')
@@ -51,4 +57,9 @@ function handleNullInput () {
 function handleNoLanguages () {
   document.getElementById('languages')
     .innerHTML = `<p class="message">${NO_LANGUAGE_MESSAGE}<p>`
+}
+
+function handleErrors () {
+  document.getElementById('user')
+    .innerHTML = `<p class="message">${ERROR_MESSAGE}<p>`
 }

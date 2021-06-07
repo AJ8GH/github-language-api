@@ -1,5 +1,6 @@
 const EMPTY_USERNAME_MESSAGE = 'Looks like you forgot to enter a username!'
 const NO_LANGUAGE_MESSAGE = 'Looks like this user has not committed any code.'
+const ERROR_MESSAGE = 'Something went wrong... are you sure that user exists?'
 
 function mockApiRequest (user) {
   cy.intercept(
@@ -30,5 +31,15 @@ describe('Edge and error cases', () => {
 
     cy.wait('@getRepos').its('request.url')
       .should('include', '/aj8gh/repos?per_page=999')
+  })
+
+  it('displays a message when username is invalid', () => {
+    mockApiRequest('invlaid username')
+
+    cy.visit('/')
+    cy.get('#username').type('invalid username')
+    cy.get('#go').click()
+
+    cy.contains(ERROR_MESSAGE)
   })
 })
