@@ -2,11 +2,19 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  background-color: #ffed4b;
+}
+
+.header, .title {
+  background:#fdcd3b;
+  width: 100%;
 }
 
 .title {
-  font-size: 40px;
-  margin-top: 40px;
+  font-size: 50px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: white;
 }
 
 .instructions {
@@ -15,20 +23,24 @@
 }
 
 .input, .go {
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 25px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: 0px;
+  max-width: 500px;
 }
 
 .go {
   margin-top: 15px;
+  background:#fdcd3b;
 }
 
 .input {
   width: 300px;
+  background-color: white;
 }
 
 .favourite {
@@ -37,4 +49,16 @@
 
 .user {
   font-size: 25px;
+}
+
+.favourite {
+  font-size: 22px;
+}
+
+.language {
+  font-size: 20px;
+}
+
+.language-name, .user, .title, .go {
+  font-weight: 900;
 }

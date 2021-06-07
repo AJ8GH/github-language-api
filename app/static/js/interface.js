@@ -45,7 +45,10 @@ function displayLanguageCount (languageCount, languageDiv) {
   languageCount.forEach(languageObject => {
     const { language, count } = languageObject
     const repos = (count > 1) ? 'repositories' : 'repository'
-    const content = `<p class="language"> ${language} - ${count} ${repos}<p/>`
+    const content = [
+      '<p class="language"><span class="language-name">',
+      `${language}</span> - ${count} ${repos}<p/>`
+    ].join('')
     languageDiv.innerHTML += content
   })
 }
