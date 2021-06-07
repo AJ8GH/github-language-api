@@ -1,3 +1,5 @@
+const FAVOURITE_LANGUAGE_MESSAGE = "User aj8gh's favourite language is Java"
+
 function mockApiRequest (user) {
   cy.intercept(
     {
@@ -25,7 +27,7 @@ describe('Displaying languages', () => {
     cy.get('#username').type('aj8gh')
     cy.get('#go').click()
 
-    cy.contains('Favourite language: Java')
+    cy.contains(FAVOURITE_LANGUAGE_MESSAGE)
 
     cy.wait('@getRepos').its('request.url')
       .should('include', '/aj8gh/repos?per_page=999')
