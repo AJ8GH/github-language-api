@@ -19,5 +19,5 @@ So that I can analyse how much they have used other languages
 
 As a user,
 I want the app to have an attractive interface,
-So that it is a pleasure to use and nice to look at
+So that it is a pleasure to use and look at
 ```

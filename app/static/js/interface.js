@@ -1,8 +1,9 @@
 import GithubDataParser from './models/githubDataParser.js'
 
-const EMPTY_USERNAME_MESSAGE = 'Looks like you forgot to enter a username!'
-const NO_LANGUAGE_MESSAGE = 'Looks like this user has not committed any code.'
-const ERROR_MESSAGE = 'Something went wrong... are you sure that user exists?'
+import {
+  EMPTY_USERNAME_MESSAGE, NO_LANGUAGE_MESSAGE, ERROR_MESSAGE
+} from './translations/enGb.js'
+
 const END_POINT = 'https://api.github.com/users/'
 const QUERY = '/repos?per_page=999'
 

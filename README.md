@@ -13,7 +13,7 @@ App to determine the favourite proramming languages of a GitHub user, using the 
 
 ## Deployed app
 
-You can use the deployed application here: https://github-language-analyser.herokuapp.com/
+You can use the deployed application [here](https://github-language-analyser.herokuapp.com/)
 
 ## Using the app
 
@@ -78,22 +78,24 @@ I chose to built this app using Node.js for the backend and 'vanilla' JS for the
 
 ### TDD
 
-* Followed an outside-in, red-green-refactor, tdd process.
+* Followed an outside-in, red-green-refactor, tdd process
 * Used `Cypress` for end-to-end BDD, and `Mocha` for testing the server and the `GithubDataParser` class
 * Used `c8`, `nyc` and CodeCov to track test coverage
+* Mocked calls to the GitHub API in the tests, using Cypress' `cy.intercept` method
 
 ### CI/CD
 
-* Set up CI/CD using travis, which runs all unit and feature tests.
-* On a successful build, travis submits test coverage data to CodeCov and deploys the new version to Heroku.
+* Set up CI/CD using travis, which runs all unit and feature tests
+* On a successful build, travis submits test coverage data to CodeCov and deploys the new version to Heroku
 
 ### Code Quality
 
-* Used TDD and OOP principles to ensure my code stayed readable and maintainable.
+* Used TDD and OOP principles to ensure my code stayed readable and maintainable
 * Applied the Single Responsibility Principle in keeping classes and functions short and with a clear purpose
-* Created the `GitHubDataParser` class, responsible for manipulating the raw JSON data from the GitHub API, in order to separate the logic involved in this process, from the JavaScript code in `interface.js`. The Interface code is responsible for manipulating the DOM.
-* Tracked code quality using CodeClimate and Better Code Hub.
+* Created the `GitHubDataParser` class, responsible for manipulating the raw JSON data from the GitHub API, in order to separate the logic involved in this process, from the JavaScript code in `interface.js`. The Interface code is responsible for manipulating the DOM
+* Tracked code quality using CodeClimate and Better Code Hub
 * Used ESLint to ensure consistent style and ensure there were no syntax errors
+* Stored message string constants in a `translations/enGB.js` file, further separating concerns, and allowing for scalability
 
 ### Workflow and process
 
