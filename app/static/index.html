@@ -10,14 +10,16 @@
     <script type="module" src="./js/models/githubDataParser.js"></script>
     <script type="module" defer src="./js/interface.js"></script>
   </head>
-  <body>
-    <header class="header">
-      <h1 class="title">Github Language Analyser</h1>
-    </header>
-    <p class="instructions">Enter a GitHub username</p>
-    <input type="text" id="username" class="input">
-    <button id="go" class="go">Go!</button>
-    <div id="user"></div>
-    <div id="languages" class="languages"></div>
+  <body class="body">
+    <div class="page-container">
+      <header class="header">
+        <h1 class="title">Github Language Analyser</h1>
+      </header>
+      <p class="instructions">Enter a GitHub username</p>
+      <input type="text" id="username" class="input">
+      <button id="go" class="go">Go!</button>
+      <section id="user"></section>
+      <main id="languages" class="languages"></main>
+    </div>
   </body>
 </html>
