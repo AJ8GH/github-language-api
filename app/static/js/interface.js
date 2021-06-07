@@ -12,7 +12,6 @@ document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
   if (!username) { return displayMessage(EMPTY_USERNAME_MESSAGE) }
 
-  document.getElementById('user').innerHTML = `<p class="user">${username}<p>`
   getUserRepos(username)
 })
 
@@ -21,36 +20,41 @@ async function getUserRepos (username) {
     const response = await fetch(`${END_POINT}${username}${QUERY}`)
     if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
 
-    response.json().then(data => parseAndDisplayResults(data))
+    response.json().then(data => parseAndDisplayResults(data, username))
   } catch (error) {
     console.error(error)
   }
 }
 
-function parseAndDisplayResults (languages) {
+function parseAndDisplayResults (languages, username) {
   const languageCount = dataParser.parse(languages)
   if (!languageCount) { return displayMessage(NO_LANGUAGE_MESSAGE) }
 
-  const element = document.getElementById('languages')
-  displayFavouriteLanguage(languageCount, element)
-  displayLanguageCount(languageCount, element)
+  const languageDiv = document.getElementById('languages')
+  document.getElementById('user').innerHTML = `<p class="user">${username}<p>`
+  displayFavouriteLanguage(languageCount, languageDiv)
+  displayLanguageCount(languageCount, languageDiv)
 }
 
-function displayFavouriteLanguage (languageCount, element) {
-  element.innerHTML =
+function displayFavouriteLanguage (languageCount, languageDiv) {
+  languageDiv.innerHTML =
   `<p class="favourite">Favourite language: ${languageCount[0].language}<p/>`
 }
 
-function displayLanguageCount (languageCount, element) {
+function displayLanguageCount (languageCount, languageDiv) {
   languageCount.forEach(languageObject => {
     const { language, count } = languageObject
     const repos = (count > 1) ? 'repositories' : 'repository'
     const content = `<p class="language"> ${language} - ${count} ${repos}<p/>`
-    element.innerHTML += content
+    languageDiv.innerHTML += content
   })
 }
 
 function displayMessage (message) {
-  document.getElementById('user')
-    .innerHTML = `<p class="message">${message}<p>`
+  document.getElementById('user').innerHTML = `<p class="message">${message}<p>`
+  clearLanguages()
+}
+
+function clearLanguages () {
+  document.getElementById('languages').innerHTML = null
 }
