@@ -40,7 +40,7 @@ function displayFavouriteLanguage (languageCount, languageDiv) {
   const username = document.getElementById('username').value
 
   const content = [
-    `<p class="favourite"><span class="user">${username}</span>'s `,
+    `<p class="favourite">${username}'s `,
     `favourite language is ${languageCount[0].language}<p/>`
   ]
 
