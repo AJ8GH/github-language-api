@@ -52,11 +52,18 @@
 .go {
   margin-top: 15px;
   background:#fdcd3b;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.go:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .input {
   width: 400px;
   background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .user {

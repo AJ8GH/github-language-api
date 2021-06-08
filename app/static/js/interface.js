@@ -42,9 +42,9 @@ function displayFavouriteLanguage (languageCount, languageDiv) {
   const content = [
     `<p class="favourite">User <span class="user">${username}</span>'s `,
     `favourite language is ${languageCount[0].language}<p/>`
-  ].join('')
+  ]
 
-  languageDiv.innerHTML = content
+  languageDiv.innerHTML = content.join('')
 }
 
 function displayLanguageCount (languageCount, languageDiv) {
@@ -55,9 +55,9 @@ function displayLanguageCount (languageCount, languageDiv) {
     const content = [
       '<p class="language"><span class="language-name">',
       `${language}</span> - ${count} ${repos}<p/>`
-    ].join('')
+    ]
 
-    languageDiv.innerHTML += content
+    languageDiv.innerHTML += content.join('')
   })
 }
 
