@@ -1,4 +1,4 @@
-const FAVOURITE_LANGUAGE_MESSAGE = "User aj8gh's favourite language is Java"
+const FAVOURITE_LANGUAGE_MESSAGE = "aj8gh's favourite language is Java"
 
 function mockApiRequest (user) {
   cy.intercept(
