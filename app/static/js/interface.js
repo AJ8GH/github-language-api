@@ -39,29 +39,29 @@ function parseAndDisplayResults (languages) {
 function displayFavouriteLanguage (languageCount, languageDiv) {
   const username = document.getElementById('username').value
 
-  languageDiv.innerHTML = [
-  `<p class="favourite">User <span class="user">${username}</span>'s `,
-  `favourite language is ${languageCount[0].language}<p/>`
+  const content = [
+    `<p class="favourite">User <span class="user">${username}</span>'s `,
+    `favourite language is ${languageCount[0].language}<p/>`
   ].join('')
+
+  languageDiv.innerHTML = content
 }
 
 function displayLanguageCount (languageCount, languageDiv) {
   languageCount.forEach(languageObject => {
     const { language, count } = languageObject
     const repos = (count > 1) ? 'repositories' : 'repository'
+
     const content = [
       '<p class="language"><span class="language-name">',
       `${language}</span> - ${count} ${repos}<p/>`
     ].join('')
+
     languageDiv.innerHTML += content
   })
 }
 
 function displayMessage (message) {
-  clearLanguages()
-  document.getElementById('languages').innerHTML = `<p class="message">${message}<p>`
-}
-
-function clearLanguages () {
-  document.getElementById('languages').innerHTML = null
+  document.getElementById('languages')
+    .innerHTML = `<p class="message">${message}<p>`
 }
