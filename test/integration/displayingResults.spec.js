@@ -10,7 +10,7 @@ function mockApiRequest (user) {
       { language: 'Java' },
       { language: 'Java' },
       { language: 'Go' },
-      { language: 'PHP' },
+      { language: 'C' },
       { language: 'Java' },
       { language: 'Ruby' },
       { language: 'Ruby' }
@@ -43,7 +43,7 @@ describe('Displaying languages', () => {
 
     cy.contains('Java - 3 repositories')
     cy.contains('Ruby - 2 repositories')
-    cy.contains('PHP - 1 repository')
+    cy.contains('C - 1 repository')
     cy.contains('Go - 1 repository')
 
     cy.wait('@getRepos').its('request.url')

@@ -1,10 +1,10 @@
 export default class GithubDataParser {
   parse (data) {
-    const languages = data.map(repo => repo.language)
-    const filteredLanguages = this._filterNulls(languages)
-    if (filteredLanguages.length === 0) { return }
+    const filteredRepos = this._filterNulls(data)
+    if (filteredRepos.length === 0) { return }
 
-    const languageCount = this._countLanguages(filteredLanguages)
+    const languages = filteredRepos.map(repo => repo.language)
+    const languageCount = this._countLanguages(languages)
     const languageCountArray = this._createCountArray(languageCount)
     return this._sortByFavourite(languageCountArray)
   }
@@ -16,17 +16,16 @@ export default class GithubDataParser {
     }, {})
   }
 
-  _createCountArray (languages) {
+  _createCountArray (languageCount) {
     const countArray = []
-    for (const language in languages) {
-      const obj = { language: language, count: languages[language] }
-      countArray.push(obj)
+    for (const language in languageCount) {
+      countArray.push({ language: language, count: languageCount[language] })
     }
     return countArray
   }
 
-  _filterNulls (languages) {
-    return languages.filter(language => language !== null)
+  _filterNulls (repos) {
+    return repos.filter(repo => repo.language !== null)
   }
 
   _sortByFavourite (languages) {
