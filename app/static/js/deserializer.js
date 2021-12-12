@@ -1,4 +1,4 @@
-export default class GithubDataParser {
+export default class Deserializer {
   parse (data) {
     const filteredRepos = this._filterNulls(data)
     if (filteredRepos.length === 0) { return }

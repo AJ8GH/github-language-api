@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node app/lib/app.js",
-    "test": "c8 mocha test/models test/routes --timeout 3000 --exit",
+    "test": "c8 mocha test/unit test/routes --timeout 3000 --exit",
     "cy": "cypress run",
     "coverage": "c8 report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "eslint .",

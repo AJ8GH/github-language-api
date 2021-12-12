@@ -1,13 +1,12 @@
-import GithubDataParser from './models/githubDataParser.js'
+import GithubDataParser from './deserializer.js'
+import GitHubClient from './gitHubClient.js'
 
 import {
   EMPTY_USERNAME_MESSAGE, NO_LANGUAGE_MESSAGE, ERROR_MESSAGE
 } from './translations/enGb.js'
 
-const END_POINT = 'https://api.github.com/users/'
-const QUERY = '/repos?per_page=999'
-
 const dataParser = new GithubDataParser()
+const client = new GitHubClient()
 
 document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
@@ -17,14 +16,9 @@ document.getElementById('go').addEventListener('click', () => {
 })
 
 async function getUserRepos (username) {
-  try {
-    const response = await fetch(`${END_POINT}${username}${QUERY}`)
-    if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
-
-    response.json().then(data => parseAndDisplayResults(data))
-  } catch (error) {
-    console.error(error)
-  }
+  const response = await client.getRepositories(username)
+  if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
+  response.json().then(data => parseAndDisplayResults(data))
 }
 
 function parseAndDisplayResults (languages) {

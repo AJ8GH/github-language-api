@@ -1,10 +1,10 @@
 import { expect } from 'chai'
-import GithubDataParser from '../../app/static/js/models/githubDataParser.js'
+import Deserializer from '../../app/static/js/deserializer.js'
 
-describe('GithubDataParser', () => {
+describe('Deserializer', () => {
   describe('parse', () => {
     it('returns languages with their count, sorted by favouite', () => {
-      const githubDataParser = new GithubDataParser()
+      const deserializer = new Deserializer()
 
       const response = [
         { language: 'Ruby' },
@@ -19,11 +19,11 @@ describe('GithubDataParser', () => {
         { language: 'Ruby', count: 1 }
       ]
 
-      expect(githubDataParser.parse(response)).to.deep.equal(expectedResult)
+      expect(deserializer.parse(response)).to.deep.equal(expectedResult)
     })
 
     it('filters out null language repos', () => {
-      const githubDataParser = new GithubDataParser()
+      const deserializer = new Deserializer()
 
       const response = [
         { language: null },
@@ -33,15 +33,15 @@ describe('GithubDataParser', () => {
 
       const expectedResult = [{ language: 'JavaScript', count: 1 }]
 
-      expect(githubDataParser.parse(response)).to.deep.equal(expectedResult)
+      expect(deserializer.parse(response)).to.deep.equal(expectedResult)
     })
 
     it('returns falsey value when user has no languages', () => {
-      const githubDataParser = new GithubDataParser()
+      const deserializer = new Deserializer()
 
       const response = [{ language: null }]
 
-      expect(githubDataParser.parse(response)).to.equal(undefined)
+      expect(deserializer.parse(response)).to.equal(undefined)
     })
   })
 })
