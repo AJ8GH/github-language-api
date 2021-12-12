@@ -79,7 +79,7 @@ I chose to built this app using Node.js for the backend and 'vanilla' JS for the
 ### TDD
 
 * Followed an outside-in, red-green-refactor, tdd process
-* Used `Cypress` for end-to-end BDD, and `Mocha` for testing the server and the `GithubDataParser` class
+* Used `Cypress` for end-to-end BDD, and `Mocha` for testing the server and the `Deserializer` class
 * Used `c8`, `nyc` and CodeCov to track test coverage
 * Mocked calls to the GitHub API in the tests, using Cypress' `cy.intercept` method
 
@@ -92,7 +92,8 @@ I chose to built this app using Node.js for the backend and 'vanilla' JS for the
 
 * Used TDD and OOP principles to ensure my code stayed readable and maintainable
 * Applied the Single Responsibility Principle in keeping classes and functions short and with a clear purpose
-* Created the `GitHubDataParser` class, responsible for manipulating the raw JSON data from the GitHub API, in order to separate the logic involved in this process, from the JavaScript code in `interface.js`. The Interface code is responsible for manipulating the DOM
+* Created the `Deserializer` class, responsible for manipulating the raw JSON data from the GitHub API, in order to separate the logic involved in this process, from the JavaScript code in `interface.js`. The Interface code is responsible for manipulating the DOM
+* Created the `GitHubApiClient` class, responsible for making HTTP calls to the GitHub API
 * Tracked code quality using CodeClimate and Better Code Hub
 * Used ESLint to ensure consistent style and ensure there were no syntax errors
 * Stored message string constants in a `translations/enGB.js` file, further separating concerns, and allowing for scalability
@@ -109,7 +110,7 @@ I tested and handled the following edge cases, for a smooth user experience:
 * Users with Null language repositories
 
 ```js
-// githubDataParser.js
+// Deserializer.js
 _filterNulls (languages) {
   return languages.filter(language => language !== null)
 }
