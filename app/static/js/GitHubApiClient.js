@@ -1,7 +1,7 @@
 const END_POINT = 'https://api.github.com/users/'
 const QUERY = '/repos?per_page=999'
 
-export default class GitHubClient {
+export default class GitHubApiClient {
   async getRepositories (username) {
     try {
       const response = await fetch(`${END_POINT}${username}${QUERY}`)

@@ -1,7 +1,7 @@
 export default class Deserializer {
-  parse (data) {
+  deserialize (data) {
     const filteredRepos = this._filterNulls(data)
-    if (filteredRepos.length === 0) { return }
+    if (filteredRepos.length === 0) return
 
     const languages = filteredRepos.map(repo => repo.language)
     const languageCount = this._countLanguages(languages)

@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import Deserializer from '../../app/static/js/deserializer.js'
+import Deserializer from '../../app/static/js/Deserializer.js'
 
 describe('Deserializer', () => {
   describe('parse', () => {
@@ -19,7 +19,7 @@ describe('Deserializer', () => {
         { language: 'Ruby', count: 1 }
       ]
 
-      expect(deserializer.parse(response)).to.deep.equal(expectedResult)
+      expect(deserializer.deserialize(response)).to.deep.equal(expectedResult)
     })
 
     it('filters out null language repos', () => {
@@ -33,7 +33,7 @@ describe('Deserializer', () => {
 
       const expectedResult = [{ language: 'JavaScript', count: 1 }]
 
-      expect(deserializer.parse(response)).to.deep.equal(expectedResult)
+      expect(deserializer.deserialize(response)).to.deep.equal(expectedResult)
     })
 
     it('returns falsey value when user has no languages', () => {
@@ -41,7 +41,7 @@ describe('Deserializer', () => {
 
       const response = [{ language: null }]
 
-      expect(deserializer.parse(response)).to.equal(undefined)
+      expect(deserializer.deserialize(response)).to.equal(undefined)
     })
   })
 })

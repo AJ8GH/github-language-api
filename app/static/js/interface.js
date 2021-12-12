@@ -1,29 +1,29 @@
-import GithubDataParser from './deserializer.js'
-import GitHubClient from './gitHubClient.js'
+import Deserializer from './Deserializer.js'
+import GitHubApiClient from './GitHubApiClient.js'
 
 import {
   EMPTY_USERNAME_MESSAGE, NO_LANGUAGE_MESSAGE, ERROR_MESSAGE
 } from './translations/enGb.js'
 
-const dataParser = new GithubDataParser()
-const client = new GitHubClient()
+const deserializer = new Deserializer()
+const client = new GitHubApiClient()
 
 document.getElementById('go').addEventListener('click', () => {
   const username = document.getElementById('username').value
-  if (!username) { return displayMessage(EMPTY_USERNAME_MESSAGE) }
+  if (!username) return displayMessage(EMPTY_USERNAME_MESSAGE)
 
   getUserRepos(username)
 })
 
 async function getUserRepos (username) {
   const response = await client.getRepositories(username)
-  if (response.status !== 200) { return displayMessage(ERROR_MESSAGE) }
+  if (response.status !== 200) return displayMessage(ERROR_MESSAGE)
   response.json().then(data => parseAndDisplayResults(data))
 }
 
 function parseAndDisplayResults (languages) {
-  const languageCount = dataParser.parse(languages)
-  if (!languageCount) { return displayMessage(NO_LANGUAGE_MESSAGE) }
+  const languageCount = deserializer.deserialize(languages)
+  if (!languageCount) return displayMessage(NO_LANGUAGE_MESSAGE)
 
   const languageDiv = document.getElementById('languages')
   displayFavouriteLanguage(languageCount, languageDiv)
